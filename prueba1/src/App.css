@@ -1,0 +1,67 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+html {
+    height: 100%;
+}
+
+body {
+    margin: auto;
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.todo-list {
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 2px solid white;
+    backdrop-filter: blur(20px);
+}
+
+
+body{
+    background-image: url("imganes/fondo1.png");
+    background-size:100%;
+    background-attachment: fixed;
+}
+
+/** TODO*/
+.file-input {
+    padding: 2px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+    .file-input > .text {
+        outline: none;
+        padding: 0px 10px;
+        font-size: 15px;
+        width: 150px;
+        height: 46px;
+        background: transparent;
+        border: 0px solid;
+    }
+
+
+.todo-text{
+    color:white;
+}
+
+.todo-list {
+   color :white;
+}
+
+.button-blue {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
