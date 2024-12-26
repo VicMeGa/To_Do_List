@@ -21,7 +21,6 @@ body {
     margin: auto;
     margin-bottom: 20px;
     padding: 8px 16px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     border: 2px solid white;
     backdrop-filter: blur(20px);
@@ -43,9 +42,9 @@ body{
 
     .file-input > .text {
         outline: none;
-        padding: 0px 10px;
+        padding: 0px 20px;
         font-size: 15px;
-        width: 150px;
+        width: 200px;
         height: 46px;
         background: transparent;
         border: 0px solid;
@@ -57,11 +56,30 @@ body{
 }
 
 .todo-list {
-   color :white;
+    color: white;
+    display: block;
 }
 
 .button-blue {
     background: transparent;
     border: 2px solid white;
     color: white;
+}
+
+
+.todo.new-item {
+    inset:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.titulo {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(20px);
 }

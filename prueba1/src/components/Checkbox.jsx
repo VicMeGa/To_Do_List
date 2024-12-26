@@ -12,7 +12,7 @@ const Checkbox = props => {
             {/**/ }
             <label className="todo new-item">
                 <input className="todo-state" name={id} type="Checkbox"
-                    defaultChecked={done} onChange={onChange} label={description} />
+                    defaultChecked={done} onChange={onChange} label={description}/>
                 <div className="todo-text">{description}</div>
             </label>
         </Fragment>
