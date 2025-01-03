@@ -1,26 +1,50 @@
 //import React from "react";
 // import { useState } from "react";
+import { useEffect } from "react";
 import Checkbox from "./Checkbox";
+import { auth } from "./Firebase/firebaseConfig";
+import { db } from "./Firebase/firebaseConfig";
+import { ref, onValue, update, remove } from "firebase/database";
 
-const TaskList = props => {
-    const { list, setList } = props;
+const TaskList = ({ list, setList }) => {
+    useEffect(() => {
+        const userId = auth.currentUser?.uid;
+        if (!userId) return;
+
+        const tasksRef = ref(db, `users/${userId}/Tasks`);
+        onValue(tasksRef, snapshot => {
+            const data = snapshot.val();
+            const tasks = data
+                ? Object.keys(data).map(key => ({
+                    id: key,
+                    ...data[key]
+                }))
+                : [];
+            setList(tasks);
+        });
+    }, [setList]);
+    //(D)
     const onChangeStatus = e => {
         const { name, checked } = e.target;
+        const userId = auth.currentUser?.uid;
+        if (!userId) return;
 
-        //(cambios E)
-        const updateList = list.map(item => ({
-            ...item,
-            done: item.id === name ? checked : item.done
-        }));
-        setList(updateList);
+        const taskRef = ref(db, `users/${userId}/Tasks/${name}`);
+        update(taskRef, { done: checked });
     };
 
-    //(D)
-    const onClickRemoveItem = e => {
-        const updateList = list.filter(item => !item.done);
-        setList(updateList);
-    }
 
+    const onClickRemoveItem = () => {
+        const userId = auth.currentUser?.uid;
+        if (!userId) return;
+
+        list.forEach(item => {
+            if (item.done) {
+                const taskRef = ref(db, `users/${ userId }/Tasks/${item.id}`);
+                remove(taskRef);
+            }
+        });
+    };
     //(A-2)
     const chk = list.map(item => (
         <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
@@ -34,7 +58,7 @@ const TaskList = props => {
             {list.length ? (
                 <p>
                     <button className="button-blue" onClick={onClickRemoveItem }>
-                    Borrar tarea
+                        Delete selected
                     </button>
                 </p>
             ):null}
