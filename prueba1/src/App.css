@@ -1,7 +1,7 @@
 #root {
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  align-content: center
 }
 html {
     height: 100%;
@@ -13,7 +13,7 @@ body {
 
 .App {
     font-family: sans-serif;
-    text-align: center;
+
 }
 
 .todo-list {
@@ -24,13 +24,20 @@ body {
     border-radius: 8px;
     border: 2px solid white;
     backdrop-filter: blur(20px);
+    text-align: center;
 }
 
 
 body{
     background-image: url("imganes/fondo2.jpg");
-    background-size:100%;
+    
     background-attachment: fixed;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        background-color: #f0f8ff; /* Fondo para teléfonos */
+    }
 }
 
 /** TODO*/
@@ -58,6 +65,7 @@ body{
 .todo-list {
     color: white;
     display: block;
+    align-content: center;
 }
 
 .button-blue {
@@ -75,7 +83,7 @@ body{
 }
 .todo.new-item {
     inset:10px;
-    display: flex;
+    display: block;
     align-items: center;
     cursor: pointer;
 }
@@ -134,3 +142,7 @@ body{
     z-index: -1;
 }
 
+.container{
+    text-align:center;
+    align-content:center;
+}

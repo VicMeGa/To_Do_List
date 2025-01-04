@@ -4,7 +4,7 @@
 import './App.css'
 import './components/Container.jsx'
 import Container from './components/Container.jsx';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import  Login  from  './components/Login/Login.jsx';
 import  Register  from './components/Login/Register.jsx';
 function App() {

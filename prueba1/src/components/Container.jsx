@@ -43,7 +43,7 @@ const Container = () => {
     };
 
     return (
-        <div>
+        <div className="container">
             <Titulo />
             <FormTodo handleAddItem={handleAddItem} />
             <TaskList list={list} setList={setList} />

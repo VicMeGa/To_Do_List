@@ -53,7 +53,9 @@ const TaskList = ({ list, setList }) => {
     return (
         <div className="todo-list">
             {/*(A-1) */}
+
             {list.length ? chk : "No task"}
+
             {/*(B) */}
             {list.length ? (
                 <p>

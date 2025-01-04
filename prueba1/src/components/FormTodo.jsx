@@ -7,7 +7,7 @@ const FormTodo = props => {
     const { handleAddItem } = props;
     const [description, setDescription] = useState("");
     const handleSubmit = e => {
-        e.preventDefault(); //(E)
+       // e.preventDefault(); //(E)
         // Crear nueva tarea en Firebase
         const user = auth.currentUser;
         const userId = user.uid;
