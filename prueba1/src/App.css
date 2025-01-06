@@ -27,18 +27,13 @@ body {
     text-align: center;
 }
 
-
+/*
 body{
     background-image: url("imganes/fondo2.jpg");
     
     background-attachment: fixed;
 }
-
-@media screen and (max-width: 767px) {
-    body {
-        background-color: #f0f8ff; /* Fondo para teléfonos */
-    }
-}
+    */
 
 /** TODO*/
 .file-input {
@@ -142,7 +137,7 @@ body{
     z-index: -1;
 }
 
-.container{
+.container-uno{
     text-align:center;
     align-content:center;
 }
@@ -198,5 +193,61 @@ body{
 
     80%, 100% {
         content: '';
+    }
+}
+
+/*Fondo animado*/
+
+@import "compass/css3";
+
+.container-fluid.fondo {
+    position: fixed; /* Cambiado a fixed para que se mantenga en el fondo */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    z-index: -1; /* Para asegurar que esté detrás del contenido */
+    display: flex;
+    flex-direction: column;
+}
+
+.fondo > .row {
+    flex: 1; /* Para que cada fila ocupe la misma proporción */
+    width: 100%;
+    background: #90A0CF;
+    animation: fade 5s infinite;
+    animation-direction: alternate;
+    margin: 0;
+}
+
+/* Mantener los delays de animación */
+.fondo > .row-2 { animation-delay: 0.5s; }
+.fondo > .row-3 { animation-delay: 1s; }
+.fondo > .row-4 { animation-delay: 1.5s; }
+.fondo > .row-5 { animation-delay: 2s; }
+.fondo > .row-6 { animation-delay: 2.5s; }
+.fondo > .row-7 { animation-delay: 3s; }
+.fondo > .row-8 { animation-delay: 3.5s; }
+.fondo > .row-9 { animation-delay: 4s; }
+.fondo > .row-10 { animation-delay: 4.5s; }
+
+/* Ajustar el contenedor principal para que esté por encima del fondo */
+#root {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+/* Mantener la animación fade */
+@keyframes fade {
+    from {
+        background: #90A0CF;
+    }
+    to {
+        background: #010E33;
     }
 }
